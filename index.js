@@ -1,12 +1,34 @@
-import { Common, Theme } from './src/index'
+const Common = require('./src/Common');
+const Theme = require('./src/Theme');
 
-export default class OxWebpackConfig extends Common {
+class OxWebpackConfig extends Common {
 
-    Themes = [
-        new Theme({ type: 'root', name: 'ci' }),
-        new Theme({ type: 'child', name: 'seipp' }),
-        new Theme({ type: 'child', name: 'gaertner' }),
-    ]
+    RootTheme = new Theme({ type: 'root', name: 'ci' })
+
+    Themes = []
+
+    filenessCache = []
+
+    constructor(options) {
+        super(options)
+
+        this.Themes = [
+            this.RootTheme,
+            new Theme({ type: 'child', name: 'seipp' }, this.RootTheme),
+            new Theme({ type: 'child', name: 'gaertner' }, this.RootTheme),
+        ]
+    }
+
+    isFile(file) {
+        if (file in filenessCache) {
+            return filenessCache[file]
+        }
+        var result = fs.existsSync(file) && fs.statSync(file).isFile()
+        if (!process.env.BROWSERSLIST_DISABLE_CACHE) {
+            filenessCache[file] = result
+        }
+        return result
+    }
 
     getMode() {
         return 'development'
@@ -28,9 +50,9 @@ export default class OxWebpackConfig extends Common {
         return 'src/css/chunk-[id].css'
     }
 
-    loadConfig = function () {
+    loadConfig () {
         return {
-            themes: this.Themes
+            theme: this.Themes
         }
     }
 
@@ -40,10 +62,10 @@ export default class OxWebpackConfig extends Common {
     }
 
     importGlobals(oTheme, type = 'less') {
-        return oTheme.importGlobals(oTheme, type)
+        return oTheme.importGlobals(type)
     }
 
-    getProvidetPlugins() {
+    getProvidedPlugins() {
         return {
             overlib: "overlib"
         }
@@ -55,3 +77,5 @@ export default class OxWebpackConfig extends Common {
         }
     }
 }
+
+module.exports = OxWebpackConfig;

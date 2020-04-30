@@ -1,12 +1,21 @@
 const path = require('path')
-const glob = require('glob')
 
-export class Commnon {
+class Common {
 
-    viewsSrc = this.findPath(__dirname, 'source/Application/views')
-    outSrc = this.findPath(__dirname, 'source/out')
-    moduelSrc = this.findPath(__dirname, 'source/out/assets/modules')
-    themeSrc = this.findPath(__dirname, 'source/out/assets/themes')
+    dir = '';
+
+    constructor(options) {
+        for (let o in options) {
+            if (this[o] !== undefined && typeof this[o] !== 'function') {
+                this[o] = options[o]
+            }
+        }
+    }
+
+    viewsSrc = this.findPath(this.dir, 'source/Application/views')
+    outSrc = this.findPath(this.dir, 'source/out')
+    moduleSrc = this.findPath(this.dir, 'source/out/assets/modules')
+    themeSrc = this.findPath(this.dir, 'source/out/assets/themes')
 
     findPath() {
         const locations = Array.from(arguments)
@@ -18,6 +27,6 @@ export class Commnon {
 
         return f
     }
-
-
 }
+
+module.exports = Common;
