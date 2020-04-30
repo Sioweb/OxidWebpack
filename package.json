@@ -1,0 +1,23 @@
+{
+  "name": "sioweb-oxid-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sioweb/OxidWebpack.git"
+  },
+  "keywords": [
+    "Oxid",
+    "Webpack"
+  ],
+  "author": "Sascha Weidner",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Sioweb/OxidWebpack/issues"
+  },
+  "homepage": "https://github.com/Sioweb/OxidWebpack#readme"
+}
