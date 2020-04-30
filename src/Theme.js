@@ -33,7 +33,7 @@ class Theme extends Common {
     getCommonEntries(entries) {
         let selfObj = this;
 
-        if (selfObj.type !== 'root') {
+        if (selfObj.type !== 'root' && selfObj.RootTheme !== null) {
             glob.sync(selfObj.themeSrc(selfObj.RootTheme.name, 'js/*.js')).forEach(function (widget) {
                 entries[selfObj.defaultScriptName].push(widget);
             });
@@ -41,9 +41,7 @@ class Theme extends Common {
                 entries[selfObj.defaultScriptName].push(widget);
             });
         }
-        // glob.sync(selfObj.themeSrc(selfObj.name, 'js/**/*.js')).forEach(function (widget) {
-        //     entries[selfObj.defaultScriptName].push(widget);
-        // });
+        
         glob.sync(selfObj.moduleSrc('**/js/*.js')).forEach(function (widget) {
             entries[selfObj.defaultScriptName].push(widget);
         });
@@ -67,7 +65,7 @@ class Theme extends Common {
         });
 
         entries[selfObj.defaultScriptName].push(selfObj.themeSrc(selfObj.name, 'entry/main.js'))
-        if (selfObj.type !== 'root') {
+        if (selfObj.type !== 'root' && selfObj.RootTheme !== null) {
             entries[selfObj.defaultScriptName].push(selfObj.themeSrc(selfObj.RootTheme.name, 'entry/main_after.js'))
         }
 

@@ -13,8 +13,8 @@ class OxWebpackConfig extends Common {
         super(options)
     }
 
-    getTheme(options) {
-        return new Theme(options)
+    getTheme(options, RootTheme = null) {
+        return new Theme(options, RootTheme)
     }
 
     isFile(file) {
