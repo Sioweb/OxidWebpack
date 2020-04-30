@@ -4,7 +4,7 @@
     "description": "Themes for Creative Inneneinrichter",
     "license": "GPL-3.0",
     "dependencies": {
-        "sioweb-oxid-webpack": "^0.0.7"
+        "sioweb-oxid-webpack": "^0.0.9"
     },
     "scripts": {
         "build": "yarn --cwd node_modules/sioweb-oxid-webpack/ run build",
