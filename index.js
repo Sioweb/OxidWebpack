@@ -3,20 +3,18 @@ const Theme = require('./src/Theme');
 
 class OxWebpackConfig extends Common {
 
-    RootTheme = new Theme({ type: 'root', name: 'ci' })
+    RootTheme = null
 
     Themes = []
 
     filenessCache = []
 
-    constructor(options) {
+    constructor(options, Themes) {
         super(options)
+    }
 
-        this.Themes = [
-            this.RootTheme,
-            new Theme({ type: 'child', name: 'seipp' }, this.RootTheme),
-            new Theme({ type: 'child', name: 'gaertner' }, this.RootTheme),
-        ]
+    getTheme(options) {
+        return new Theme(options)
     }
 
     isFile(file) {
@@ -67,7 +65,7 @@ class OxWebpackConfig extends Common {
 
     getProvidedPlugins() {
         return {
-            overlib: "overlib"
+            overlib: 'overlib'
         }
     }
 
