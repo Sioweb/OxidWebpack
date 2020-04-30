@@ -1,6 +1,6 @@
 {
   "name": "sioweb-oxid-webpack",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -37,7 +37,41 @@
     "sioweb-jquery-colorbox": "^1.0.0",
     "sioweb-jquery-unveil": "^1.0.0",
     "swiper": "^4.5.0",
-    "wnumb": "^1.1.0"
+    "wnumb": "^1.1.0",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
+    "brotli-webpack-plugin": "^1.1.0",
+    "browserslist": "^4.12.0",
+    "chunks-webpack-plugin": "^4.0.3",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.5.3",
+    "cssnano": "^4.1.10",
+    "expose-loader": "^0.7.5",
+    "file-loader": "^5.1.0",
+    "glob": "^7.1.6",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "npm-run-all": "^4.1.5",
+    "parallel-webpack": "^2.6.0",
+    "path": "^0.12.7",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "raw-loader": "^4.0.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "text-transform-loader": "^2.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.7.0",
+    "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -77,8 +111,6 @@
   },
   "scripts": {
     "build": "parallel-webpack --progress --colors --debug=true --mode=development --verbose",
-    "watch": "parallel-webpack --progress --colors --watch",
-    "build-bootstrap": "parallel-webpack --progress --colors --config bootstrap.webpack.config.js",
-    "watch-bootstrap": "parallel-webpack --progress --colors --watch --config bootstrap.webpack.config.js"
+    "watch": "parallel-webpack --progress --colors --watch"
   }
 }
