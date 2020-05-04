@@ -1,3 +1,7 @@
 # Webpack für Oxid
 
-Mit [Symfony Kernel](https://github.com/OXIDprojects/oxid-symfony-kernel), werden Module und Themes, sofern diese für den Kernel optimiert wurden, per Symlink in `/out/assets/[themes|modules/*` verlinkt.
+Dieses Paket erleichtert die Konfiguration von Webpack für Oxid.
+
+## Symfony Kernel
+
+Aktuell benötigt das Paket Module und Themes, welche für [Symfony Kernel](https://github.com/OXIDprojects/oxid-symfony-kernel) optimiert wurden.
