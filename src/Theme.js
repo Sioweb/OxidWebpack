@@ -12,7 +12,7 @@ class Theme extends Common {
 
     defaultScriptName = 'src/js/scripts.min'
 
-    defaultScrips = [
+    defaultScripts = [
         'jquery',
         'jquery-ui',
         'jquery.cookie',
@@ -22,7 +22,7 @@ class Theme extends Common {
     constructor(options, RootTheme = null) {
         super(options)
         this.RootTheme = RootTheme
-        
+
         for (let o in options) {
             if (this[o] !== undefined && typeof this[o] !== 'function') {
                 this[o] = options[o]
@@ -41,7 +41,10 @@ class Theme extends Common {
                 entries[selfObj.defaultScriptName].push(widget);
             });
         }
-        
+
+        glob.sync(selfObj.themeSrc(selfObj.name, 'js/**/*.js')).forEach(function (widget) {
+            entries[selfObj.defaultScriptName].push(widget);
+        });
         glob.sync(selfObj.moduleSrc('**/js/*.js')).forEach(function (widget) {
             entries[selfObj.defaultScriptName].push(widget);
         });
@@ -66,20 +69,21 @@ class Theme extends Common {
 
         entries[selfObj.defaultScriptName].push(selfObj.themeSrc(selfObj.name, 'entry/main.js'))
         if (selfObj.type !== 'root' && selfObj.RootTheme !== null) {
+            entries[selfObj.defaultScriptName].push(selfObj.themeSrc(selfObj.RootTheme.name, 'entry/main.js'))
             entries[selfObj.defaultScriptName].push(selfObj.themeSrc(selfObj.RootTheme.name, 'entry/main_after.js'))
         }
 
         return entries
     }
 
-    getDefaultScripts(defaultScrips = []) {
+    getDefaultScripts(defaultScripts = []) {
         let Scripts = {};
 
         Scripts[this.defaultScriptName] = [];
-        if (defaultScrips.length) {
-            Scripts[this.defaultScriptName] = this.defaultScrips
+        if (!defaultScripts.length) {
+            Scripts[this.defaultScriptName] = JSON.parse(JSON.stringify(this.defaultScripts))
         } else {
-            Scripts[this.defaultScriptName] = defaultScrips
+            Scripts[this.defaultScriptName] = JSON.parse(JSON.stringify(defaultScripts))
         }
 
         return Scripts
