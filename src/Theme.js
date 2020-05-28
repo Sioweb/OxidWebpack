@@ -15,6 +15,11 @@ class Theme extends Common {
     defaultScripts = [
         'jquery',
         'jquery-ui',
+        'jquery-ui/ui/widget',
+        'jquery-ui/ui/widgets/dialog',
+        'jquery-ui/ui/widgets/droppable',
+        'jquery-ui/ui/widgets/sortable',
+        'jquery-ui/ui/widgets/autocomplete',
         'jquery.cookie',
         'bootstrap'
     ]
