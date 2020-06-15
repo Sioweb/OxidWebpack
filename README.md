@@ -10,6 +10,20 @@ Dieses Paket benötigt [Yarn](https://classic.yarnpkg.com/en/docs/install). Grun
 
 Zur Installation werden die Dateien aus [/example](https://github.com/Sioweb/OxidWebpack/tree/master/example) benötigt. Laden Sie die Dateien in den Root von Oxid und führen sie anschließend den Befehl `yarn && yarn build` in Ihrer Konsole aus.
 
+### Entwicklung
+
+#### $ yarn build
+
+`yarn build`, erzeugt einen build im `productive` Mode.
+
+#### $ yarn local
+
+`yarn local` erzeugt einen build im `development` Mode.
+
+#### $ yarn watch
+
+`yarn watch` überwacht Anpassungen, in allen registrierten Assets. `development` Mode, ist aktiv.
+
 ### [{oxscript}] / [{oxstyle}]
 
 Viele Module, verwenden [{oxscript add=""}], womit Javascript-Snippets im Code eingefügt werden können. Dadurch kann es nun zu Problemen führen, da dieses Snippets oft jQuery verwenden. Durch Webpack, wird allerdings kein jQuery mehr als einzelne Datei geladen. Alle Javascripts, werden am Ende des DOMs geladen.
