@@ -12,6 +12,7 @@ class Common {
         }
     }
 
+    mode = 'production'
     viewsSrc = this.findPath(this.dir, 'source/Application/views')
     outSrc = this.findPath(this.dir, 'source/out')
     moduleSrc = this.findPath(this.dir, 'source/out/assets/modules')

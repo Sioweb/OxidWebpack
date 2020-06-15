@@ -1,6 +1,6 @@
 {
   "name": "sioweb-oxid-webpack",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -110,7 +110,8 @@
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
-    "build": "yarn --cwd ../../ parallel-webpack --progress --colors --debug=true --mode=development --verbose",
-    "watch": "yarn --cwd ../../ parallel-webpack --progress --colors --watch"
+    "build": "yarn --cwd ../../ parallel-webpack -- -- --progress --colors --mode=production --verbose",
+    "local": "yarn --cwd ../../ parallel-webpack -- -- --progress --colors --debug=true --verbose --env.NODE_ENV=development --mode development",
+    "watch": "yarn --cwd ../../ parallel-webpack -- -- --progress --debug=true --verbose --mode=development --colors --watch --env.NODE_ENV=development --mode development"
   }
 }

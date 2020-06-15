@@ -4,10 +4,11 @@
     "description": "My own nice theme!",
     "license": "GPL-3.0",
     "dependencies": {
-        "sioweb-oxid-webpack": "^0.0.15"
+        "sioweb-oxid-webpack": "^0.0.16"
     },
     "scripts": {
         "build": "yarn --cwd node_modules/sioweb-oxid-webpack/ build",
+        "local": "yarn --cwd node_modules/sioweb-oxid-webpack/ local",
         "watch": "yarn --cwd node_modules/sioweb-oxid-webpack/ watch"
     }
 }

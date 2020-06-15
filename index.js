@@ -29,14 +29,20 @@ class OxWebpackConfig extends Common {
     }
 
     getMode() {
-        return 'development'
+        return this.mode
     }
 
     getOutputScriptName() {
+        if(this.getMode() !== 'development') {
+            return '[name].[hash].js'
+        }
         return '[name].js'
     }
 
     getOutputScriptChunkFileName() {
+        if(this.getMode() !== 'development') {
+            return '[name].[hash].js'
+        }
         return '[name].js'
     }
 
