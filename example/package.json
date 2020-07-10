@@ -4,7 +4,7 @@
     "description": "My own nice theme!",
     "license": "GPL-3.0",
     "dependencies": {
-        "sioweb-oxid-webpack": "^0.0.17"
+        "sioweb-oxid-webpack": "^0.0.18"
     },
     "scripts": {
         "build": "yarn --cwd node_modules/sioweb-oxid-webpack/ build",
